@@ -8,6 +8,7 @@ BEGIN
         a.AircraftID,
         a.Model,
         a.Capacity,
-        a.Range
+        a.Range,
+        a.AverageFuelConsumption
     FROM Airline.dbo.Aircraft a
 END

@@ -4,19 +4,22 @@ GO
 CREATE OR ALTER PROCEDURE dbo.InsertAircraft
     @model VARCHAR(255),
     @capacity INT,
-    @range FLOAT
+    @range FLOAT,
+    @avaregeFuelConsumption FLOAT
 AS
 BEGIN
     INSERT INTO dbo.Aircraft
     (
         Model,
         Capacity,
-        [Range]
+        [Range],
+        AverageFuelConsumption
     )
     VALUES
     (
         @model,
         @capacity,
-        @range
+        @range,
+        @avaregeFuelConsumption
     )
 END
