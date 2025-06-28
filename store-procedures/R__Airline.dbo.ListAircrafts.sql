@@ -11,4 +11,5 @@ BEGIN
         a.Range,
         a.AverageFuelConsumption
     FROM Airline.dbo.Aircraft a
+    WHERE FinalDate IS NULL OR FinalDate > GETDATE()
 END
