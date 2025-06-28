@@ -6,7 +6,8 @@ CREATE OR ALTER PROCEDURE dbo.MergeAircraft
     @model VARCHAR(255) = NULL,
     @capacity INT = NULL,
     @range FLOAT = NULL,
-    @avaregeFuelConsumption FLOAT = NULL
+    @avaregeFuelConsumption FLOAT = NULL,
+    @finalDate DATETIME = NULL
 AS
 BEGIN
 
@@ -29,14 +30,16 @@ BEGIN
             Model,
             Capacity,
             [Range],
-            AverageFuelConsumption
+            AverageFuelConsumption,
+            FinalDate
         )
         VALUES
         (
             @model,
             @capacity,
             @range,
-            @avaregeFuelConsumption
+            @avaregeFuelConsumption,
+            NULL
         )
     END
     ELSE
@@ -44,7 +47,8 @@ BEGIN
         UPDATE dbo.Aircraft SET
             Capacity = ISNULL(@capacity, Capacity),
             [Range] = ISNULL(@range, [Range]),
-            AverageFuelConsumption = ISNULL(@avaregeFuelConsumption, AverageFuelConsumption)
+            AverageFuelConsumption = ISNULL(@avaregeFuelConsumption, AverageFuelConsumption),
+            FinalDate = ISNULL(@finalDate, FinalDate)
 
         WHERE 
             AircraftID = @aircraftId
