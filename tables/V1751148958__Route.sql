@@ -1,0 +1,12 @@
+USE Airline
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER TABLE [dbo].[Route]
+ADD 
+    [FinalDate] DATETIME NULL,
+    [Price] FLOAT NOT NULL
